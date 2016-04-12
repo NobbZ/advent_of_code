@@ -27,6 +27,6 @@ defmodule AdventOfCode.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [{:power_assert, "== 0.0.8", only: :test}]
   end
 end
