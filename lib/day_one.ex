@@ -18,7 +18,8 @@ defmodule AdventOfCode.DayOne do
 
   defp diff_parens({o, c}), do: o - c
 
-  defp find_floor(input, target, idx \\ 0, current \\ 0)
+  defp find_floor(input, target), do: find_floor(input, target, 0, 0)
+  #  defp find_floor(input, target, idx \\ 0, current \\ 0)
   defp find_floor(_input, target, idx, target), do: idx
   defp find_floor("(" <> input, target, idx, current), do: find_floor(input, target, idx + 1, current + 1)
   defp find_floor(")" <> input, target, idx, current), do: find_floor(input, target, idx + 1, current - 1)

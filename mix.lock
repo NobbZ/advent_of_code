@@ -1,1 +1,2 @@
-%{"power_assert": {:hex, :power_assert, "0.0.8"}}
+%{"dialyze": {:hex, :dialyze, "0.2.1"},
+  "power_assert": {:hex, :power_assert, "0.0.8"}}

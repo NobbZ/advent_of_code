@@ -11,7 +11,8 @@ defmodule AdventOfCode.DayThree do
     |> move_around_with_robot
   end
 
-  defp move_around(input, coord \\ {0, 0}, visited \\ HashSet.new)
+  defp move_around(input), do: move_around(input, {0, 0}, HashSet.new)
+  #defp move_around(input, coord \\ {0, 0}, visited \\ HashSet.new)
   defp move_around("", coord, visited) do
     visited
     |> HashSet.put(coord)
@@ -22,8 +23,8 @@ defmodule AdventOfCode.DayThree do
     move_around(input, move_one(coords, d), HashSet.put(visited, coords))
   end
 
-
-  defp move_around_with_robot(input, santa \\ {0, 0}, robo \\ {0, 0}, visited \\ HashSet.new)
+  defp move_around_with_robot(input), do: move_around_with_robot(input, {0, 0}, {0, 0}, HashSet.new)
+  #  defp move_around_with_robot(input, santa \\ {0, 0}, robo \\ {0, 0}, visited \\ HashSet.new)
   defp move_around_with_robot("", santa, robo, visited) do
     visited
     |> HashSet.put(santa)
