@@ -11,6 +11,11 @@ defmodule AdventOfCodeTests do
         ]
       ]
     },
+    {DayTwo, [
+        a: [
+          {"2x3x4", 58}, {"1x1x10", 43}, {"2x3x4\n1x1x10", 101}
+        ]
+      ]}
   ]
 
   for {module, funs} <- @testdata do
