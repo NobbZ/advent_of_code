@@ -1,6 +1,7 @@
 defmodule AdventOfCode.DayOne do
   def a(input) when input |> is_binary do
     input
+    |> String.strip
     |> count_parens
     |> diff_parens
   end

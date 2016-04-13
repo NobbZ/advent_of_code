@@ -4,10 +4,10 @@ defmodule AdventOfCodeTests do
     {DayOne, [
         a: [
           {"(())", 0}, {"()()", 0}, {"(((", 3}, {"(()(()(", 3}, {"))(((((", 3},
-          {"())", -1}, {"))(", -1}, {")))", -3}, {")())())", -3}
+          {"())", -1}, {"))(", -1}, {")))", -3}, {")())())", -3}, {:file, 232}
         ],
         b: [
-          {")", 1}, {"()())", 5},
+          {")", 1}, {"()())", 5}, {:file, 1783}
         ]
       ]
     },
@@ -23,7 +23,15 @@ defmodule AdventOfCodeTests do
       use PowerAssert, async: true
       for {fun, tests} <- funs do
         for {input, exp} <- tests do
-          name = "#{fun}: example #{input} is #{exp}"
+          {name, input} = case input do
+                            :file ->
+                              {"#{fun}: from file is #{exp}",
+                               File.read!(
+                                 Application.app_dir(:advent_of_code,
+                                                     "priv/#{module}.txt"))}
+                            _ ->
+                              {"#{fun}: example #{input} is #{exp}", input}
+                          end
           test name do
             assert unquote(exp) = apply(AdventOfCode.unquote(module),
                                         unquote(fun),
