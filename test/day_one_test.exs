@@ -1,20 +1,34 @@
 defmodule DayOneATests do
   use PowerAssert, async: true
 
-  test "example (()) is 0", do: assert 0 == AdventOfCode.DayOne.a "(())"
-  test "example ()() is 0", do: assert 0 == AdventOfCode.DayOne.a "()()"
-  test "example ((( is 3", do: assert 3 == AdventOfCode.DayOne.a "((("
-  test "example (()(()( is 3", do: assert 3 == AdventOfCode.DayOne.a "(()(()("
-  test "example ))((((( is 3", do: assert 3 == AdventOfCode.DayOne.a "))((((("
-  test "example ()) is -1", do: assert -1 == AdventOfCode.DayOne.a "())"
-  test "example ))( is -1", do: assert -1 == AdventOfCode.DayOne.a "))("
-  test "example ))) is -3", do: assert -3 == AdventOfCode.DayOne.a ")))"
-  test "example )())()) is -3", do: assert -3 == AdventOfCode.DayOne.a ")())())"
+  @testdata [
+    {"(())", 0},
+    {"()()", 0},
+    {"(((", 3},
+    {"(()(()(", 3},
+    {"))(((((", 3},
+    {"())", -1},
+    {"))(", -1},
+    {")))", -3},
+    {")())())", -3}
+  ]
+
+  for {input, exp} <- @testdata do
+    name = "example #{input} is #{exp}"
+    test name, do: assert unquote(exp) = AdventOfCode.DayOne.a unquote(input)
+  end
 end
 
 defmodule DayOneBTests do
   use PowerAssert, async: true
 
-  test "example ) is 1", do: assert 1 == AdventOfCode.DayOne.b ")"
-  test "example ()()) is 5", do: assert 5 == AdventOfCode.DayOne.b "()())"
+  @testdata [
+    {")", 1},
+    {"()())", 5},
+  ]
+
+  for {input, exp} <- @testdata do
+    name = "example #{input} is #{exp}"
+    test name, do: assert unquote(exp) = AdventOfCode.DayOne.b unquote(input)
+  end
 end
