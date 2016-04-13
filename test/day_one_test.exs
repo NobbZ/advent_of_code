@@ -18,6 +18,14 @@ defmodule AdventOfCodeTests do
         b: [
           {"2x3x4", 34}, {"1x1x10", 14}, {"2x3x4\n1x1x10",  48}, {:file, 3842356}
         ]
+      ]},
+    {DayThree, [
+        a: [
+          {">", 2}, {"^>v<", 4}, {"^v^v^v^v^v", 2}, {:file, 2592}
+        ],
+        b: [
+          {"^v", 3}, {"^>v<", 3}, {"^v^v^v^v^v", 11}, {:file, 2360}
+        ]
       ]}
   ]
 
