@@ -27,7 +27,8 @@ defmodule AdventOfCode.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:power_assert, "== 0.0.8", only: :test},
+    [{:parallel_stream, "~> 1.0.3"},
+     {:power_assert, "== 0.0.8", only: :test},
      {:dialyze, "~> 0.2.0", only: :dev}]
   end
 end

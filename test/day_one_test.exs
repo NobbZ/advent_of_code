@@ -26,6 +26,14 @@ defmodule AdventOfCodeTests do
         b: [
           {"^v", 3}, {"^>v<", 3}, {"^v^v^v^v^v", 11}, {:file, 2360}
         ]
+      ]},
+    {DayFour, [
+        a: [
+          {"abcdef", 609043}, {"pqrstuv", 1048970}, {"yzbqklnj", 282749}
+        ],
+        b: [
+          {"abcdef", 6742839}, {"pqrstuv", 5714438}, {"yzbqklnj", 9962624}
+        ]
       ]}
   ]
 
