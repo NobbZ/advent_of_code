@@ -44,6 +44,19 @@ defmodule AdventOfCodeTests do
           {"qjhvhtzxzqqjkmpb", 1}, {"xxyxx", 1}, {"uurcxstgmygtbstg", 0},
           {"ieodomkazucvgmuy", 0}, {:file, 55}
         ]
+      ]},
+    {DaySix, [
+        a: [
+          {"turn on 0,0 through 999,999", 1_000_000},
+          {"turn on 0,0 through 999,999\ntoggle 0,0 through 999,0", 999_000},
+          {"turn on 0,0 through 999,999\nturn off 499,499 through 500,500", 999_996},
+          {:file, 543903}
+        ],
+        b: [
+          {"turn on 0,0 through 0,0", 1},
+          {"toggle 0,0 through 999,999", 2_000_000},
+          {:file, 14687245}
+        ]
       ]}
   ]
 
