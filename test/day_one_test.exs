@@ -34,6 +34,16 @@ defmodule AdventOfCodeTests do
         b: [
           {"abcdef", 6742839}, {"pqrstuv", 5714438}, {"yzbqklnj", 9962624}
         ]
+      ]},
+    {DayFive, [
+        a: [
+          {"ugknbfddgicrmopn", 1}, {"aaa", 1}, {"jchzalrnumimnmhp", 0},
+          {"haegwjzuvuyypxyu", 0}, {"dvszwmarrgswjxmb", 0}, {:file, 255}
+        ],
+        b: [
+          {"qjhvhtzxzqqjkmpb", 1}, {"xxyxx", 1}, {"uurcxstgmygtbstg", 0},
+          {"ieodomkazucvgmuy", 0}, {:file, 55}
+        ]
       ]}
   ]
 
