@@ -57,6 +57,22 @@ defmodule AdventOfCodeTests do
           {"toggle 0,0 through 999,999", 2_000_000},
           {:file, 14687245}
         ]
+      ]},
+    {DaySeven, [
+        a: [
+          {"123 -> a", 123},
+          {"65535 -> b\n5 -> c\nb AND c -> a", 5},
+          {"65535 -> b\n5 -> c\nb OR c -> a", 65535},
+          {"2 -> b\nb LSHIFT 1 -> a", 4},
+          {"2 -> b\nb RSHIFT 1 -> a", 1},
+          {"65535 -> b\nNOT b -> a", 0},
+          {"0 -> b\nNOT b -> a", 65535},
+          {"123 -> b\nb -> a", 123},
+          {:file, 3176}
+        ],
+        b: [
+          {:file, 14710}
+        ]
       ]}
   ]
 
