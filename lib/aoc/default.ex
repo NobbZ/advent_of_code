@@ -1,7 +1,13 @@
 defmodule AoC15.Default do
+  @moduledoc false
+
   defmacro __using__([]) do
-    filename = __CALLER__.file |> Path.basename() |> String.replace_suffix(".ex", ".txt")
+    filename = __CALLER__.file
+    |> Path.basename()
+    |> String.replace_suffix(".ex", ".txt")
+
     file = Path.join(:code.priv_dir(:aoc15), filename)
+
     quote do
       @external_resource unquote(file)
 

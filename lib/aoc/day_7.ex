@@ -1,8 +1,10 @@
 defmodule AoC15.Day7 do
+  @moduledoc false
+
   use AoC15.Default
   use Bitwise
 
-  @mod_cap 65536
+  @mod_cap 65_536
 
   def a(input \\ @input) do
     input
@@ -49,7 +51,6 @@ defmodule AoC15.Day7 do
     case Integer.parse(thing) do
       {num, ""} -> {:num, num}
       :error -> {:pin, thing}
-      x -> IO.inspect x
     end
   end
 

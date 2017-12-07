@@ -1,4 +1,6 @@
 defmodule AoC15.Day3 do
+  @moduledoc false
+
   use AoC15.Default
 
   def a(input \\ @input) do
@@ -26,7 +28,6 @@ defmodule AoC15.Day3 do
   end
 
   defp move_around_with_robot(input), do: move_around_with_robot(input, {0, 0}, {0, 0}, MapSet.new)
-  #  defp move_around_with_robot(input, santa \\ {0, 0}, robo \\ {0, 0}, visited \\ HashSet.new)
   defp move_around_with_robot("", santa, robo, visited) do
     visited
     |> MapSet.put(santa)

@@ -1,4 +1,6 @@
 defmodule AoC15.Day6 do
+  @moduledoc false
+
   use AoC15.Default
 
   def a(input \\ @input) do

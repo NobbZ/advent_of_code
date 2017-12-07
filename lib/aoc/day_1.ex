@@ -1,4 +1,6 @@
 defmodule AoC15.Day1 do
+  @moduledoc false
+
   use AoC15.Default
 
   @input String.trim(@input)

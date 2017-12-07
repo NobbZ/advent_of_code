@@ -1,4 +1,6 @@
 defmodule AoC15.Day4 do
+  @moduledoc false
+
   @input "yzbqklnj"
 
   def a(input \\ @input) do
