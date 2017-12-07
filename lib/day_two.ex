@@ -1,4 +1,4 @@
-defmodule AdventOfCode.DayTwo do
+defmodule AoC15.Day2 do
   def a(input) do
     input
     |> String.split

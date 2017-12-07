@@ -1,7 +1,7 @@
 defmodule AdventOfCodeTests do
 
   @testdata [
-    {DayOne, [
+    {1, [
         a: [
           {"(())", 0}, {"()()", 0}, {"(((", 3}, {"(()(()(", 3}, {"))(((((", 3},
           {"())", -1}, {"))(", -1}, {")))", -3}, {")())())", -3}, {:file, 232}
@@ -11,7 +11,7 @@ defmodule AdventOfCodeTests do
         ]
       ]
     },
-    {DayTwo, [
+    {2, [
         a: [
           {"2x3x4", 58}, {"1x1x10", 43}, {"2x3x4\n1x1x10", 101}, {:file, 1606483}
         ],
@@ -19,7 +19,7 @@ defmodule AdventOfCodeTests do
           {"2x3x4", 34}, {"1x1x10", 14}, {"2x3x4\n1x1x10",  48}, {:file, 3842356}
         ]
       ]},
-    {DayThree, [
+    {3, [
         a: [
           {">", 2}, {"^>v<", 4}, {"^v^v^v^v^v", 2}, {:file, 2592}
         ],
@@ -27,7 +27,7 @@ defmodule AdventOfCodeTests do
           {"^v", 3}, {"^>v<", 3}, {"^v^v^v^v^v", 11}, {:file, 2360}
         ]
       ]},
-    {DayFour, [
+    {4, [
         a: [
           {"abcdef", 609043}, {"pqrstuv", 1048970}, {"yzbqklnj", 282749}
         ],
@@ -35,7 +35,7 @@ defmodule AdventOfCodeTests do
           {"abcdef", 6742839}, {"pqrstuv", 5714438}, {"yzbqklnj", 9962624}
         ]
       ]},
-    {DayFive, [
+    {5, [
         a: [
           {"ugknbfddgicrmopn", 1}, {"aaa", 1}, {"jchzalrnumimnmhp", 0},
           {"haegwjzuvuyypxyu", 0}, {"dvszwmarrgswjxmb", 0}, {:file, 255}
@@ -45,7 +45,7 @@ defmodule AdventOfCodeTests do
           {"ieodomkazucvgmuy", 0}, {:file, 55}
         ]
       ]},
-    {DaySix, [
+    {6, [
         a: [
           {"turn on 0,0 through 999,999", 1_000_000},
           {"turn on 0,0 through 999,999\ntoggle 0,0 through 999,0", 999_000},
@@ -58,7 +58,7 @@ defmodule AdventOfCodeTests do
           {:file, 14687245}
         ]
       ]},
-    {DaySeven, [
+    {7, [
         a: [
           {"123 -> a", 123},
           {"65535 -> b\n5 -> c\nb AND c -> a", 5},
@@ -76,27 +76,32 @@ defmodule AdventOfCodeTests do
       ]}
   ]
 
-  for {module, funs} <- @testdata do
-    defmodule module do
-      use PowerAssert, async: true
+  @testdata
+  |> Enum.each(fn {day, funs} ->
+    mod = Module.concat(AoC15, "Day#{day}")
+    testmod = Module.concat(AoC15Test, "Day#{day}Test")
+
+    defmodule testmod do
+      use ExUnit.Case
+
       for {fun, tests} <- funs do
         for {input, exp} <- tests do
           {name, input} = case input do
                             :file ->
                               {"#{fun}: from file is #{exp}",
                                File.read!(
-                                 Application.app_dir(:advent_of_code,
-                                                     "priv/#{module}.txt"))}
+                                 Application.app_dir(:aoc15,
+                                                     "priv/#{day}.txt"))}
                             _ ->
                               {"#{fun}: example #{input} is #{exp}", input}
                           end
           test name do
-            assert unquote(exp) = apply(AdventOfCode.unquote(module),
+            assert unquote(exp) = apply(unquote(mod),
                                         unquote(fun),
                                         [unquote(input)])
           end
         end
       end
     end
-  end
+  end)
 end

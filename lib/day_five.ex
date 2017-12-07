@@ -1,4 +1,4 @@
-defmodule AdventOfCode.DayFive do
+defmodule AoC15.Day5 do
   def a(input) do
     # 1. at least three vowels
     # 2. at least one letter twice in a row

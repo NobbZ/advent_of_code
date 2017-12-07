@@ -1,3 +1,0 @@
-%{"dialyze": {:hex, :dialyze, "0.2.1"},
-  "parallel_stream": {:hex, :parallel_stream, "1.0.3"},
-  "power_assert": {:hex, :power_assert, "0.0.8"}}

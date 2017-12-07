@@ -1,4 +1,4 @@
-defmodule AdventOfCode.DayFour do
+defmodule AoC15.Day4 do
   def a(input) do
     input
     |> gen_hashes

@@ -1,4 +1,4 @@
-defmodule AdventOfCode.DaySeven do
+defmodule AoC15.Day7 do
   use Bitwise
 
   @mod_cap 65536

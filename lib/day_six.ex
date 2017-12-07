@@ -1,4 +1,4 @@
-defmodule AdventOfCode.DaySix do
+defmodule AoC15.Day6 do
   def a(input) do
     input
     |> String.strip
