@@ -1,20 +1,22 @@
 defmodule AoC15.Day6 do
-  def a(input) do
+  use AoC15.Default
+
+  def a(input \\ @input) do
     input
     |> String.trim
     |> String.split("\n")
-    |> Enum.map(&parse_instruction/1)
-    |> Enum.map(&rewrite_instruction/1)
+    |> Stream.map(&parse_instruction/1)
+    |> Stream.map(&rewrite_instruction/1)
     |> Enum.reduce(MapSet.new, &apply_instructions/2)
     |> MapSet.size
   end
 
-  def b(input) do
+  def b(input \\ @input) do
     input
     |> String.trim
     |> String.split("\n")
-    |> Enum.map(&parse_instruction/1)
-    |> Enum.map(&rewrite_instruction/1)
+    |> Stream.map(&parse_instruction/1)
+    |> Stream.map(&rewrite_instruction/1)
     |> Enum.reduce(Map.new, &apply_instructions_b/2)
     |> Map.values
     |> Enum.sum

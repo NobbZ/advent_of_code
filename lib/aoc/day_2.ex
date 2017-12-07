@@ -1,5 +1,7 @@
 defmodule AoC15.Day2 do
-  def a(input) do
+  use AoC15.Default
+
+  def a(input \\ @input) do
     input
     |> String.split
     |> Enum.map(&parse_to_triple/1)
@@ -7,7 +9,7 @@ defmodule AoC15.Day2 do
     |> Enum.sum
   end
 
-  def b(input) do
+  def b(input \\ @input) do
     input
     |> String.split
     |> Enum.map(&parse_to_triple/1)

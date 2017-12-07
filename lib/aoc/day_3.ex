@@ -1,11 +1,13 @@
 defmodule AoC15.Day3 do
-  def a(input) do
+  use AoC15.Default
+
+  def a(input \\ @input) do
     input
     |> String.trim
     |> move_around
   end
 
-  def b(input) do
+  def b(input \\ @input) do
     input
     |> String.trim
     |> move_around_with_robot

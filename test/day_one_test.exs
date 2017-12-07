@@ -29,10 +29,10 @@ defmodule AdventOfCodeTests do
       ]},
     {4, [
         a: [
-          {"abcdef", 609043}, {"pqrstuv", 1048970}, {"yzbqklnj", 282749}
+          {"abcdef", 609043}, {"pqrstuv", 1048970}, {:file, 282749}
         ],
         b: [
-          {"abcdef", 6742839}, {"pqrstuv", 5714438}, {"yzbqklnj", 9962624}
+          {"abcdef", 6742839}, {"pqrstuv", 5714438}, {:file, 9962624}
         ]
       ]},
     {5, [
@@ -88,17 +88,14 @@ defmodule AdventOfCodeTests do
         for {input, exp} <- tests do
           {name, input} = case input do
                             :file ->
-                              {"#{fun}: from file is #{exp}",
-                               File.read!(
-                                 Application.app_dir(:aoc15,
-                                                     "priv/#{day}.txt"))}
+                              {"#{fun}: from file is #{exp}", []}
                             _ ->
-                              {"#{fun}: example #{input} is #{exp}", input}
+                              {"#{fun}: example #{input} is #{exp}", [input]}
                           end
           test name do
             assert unquote(exp) = apply(unquote(mod),
                                         unquote(fun),
-                                        [unquote(input)])
+                                        unquote(input))
           end
         end
       end

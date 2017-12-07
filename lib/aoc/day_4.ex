@@ -1,12 +1,14 @@
 defmodule AoC15.Day4 do
-  def a(input) do
+  @input "yzbqklnj"
+
+  def a(input \\ @input) do
     input
     |> gen_hashes
     |> Stream.filter(&five_leading/1)
     |> extract_solution
   end
 
-  def b(input) do
+  def b(input \\ @input) do
     input
     |> gen_hashes
     |> Stream.filter(&six_leading/1)

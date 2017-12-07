@@ -1,5 +1,7 @@
 defmodule AoC15.Day5 do
-  def a(input) do
+  use AoC15.Default
+
+  def a(input \\ @input) do
     # 1. at least three vowels
     # 2. at least one letter twice in a row
     # 3. none of "ab", "cd", "pq" or "xy"
@@ -9,7 +11,7 @@ defmodule AoC15.Day5 do
     |> Enum.count
   end
 
-  def b(input) do
+  def b(input \\ @input) do
     input
     |> String.split("\n")
     |> Enum.filter(&naughty_b/1)

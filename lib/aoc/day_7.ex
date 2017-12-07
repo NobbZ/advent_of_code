@@ -1,9 +1,10 @@
 defmodule AoC15.Day7 do
+  use AoC15.Default
   use Bitwise
 
   @mod_cap 65536
 
-  def a(input) do
+  def a(input \\ @input) do
     input
     |> String.trim
     |> String.split("\n")
@@ -14,7 +15,7 @@ defmodule AoC15.Day7 do
     |> (fn map -> map["a"] end).()
   end
 
-  def b(input) do
+  def b(input \\ @input) do
     instrs = input
     |> String.trim
     |> String.split("\n")

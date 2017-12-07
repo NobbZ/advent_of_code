@@ -1,12 +1,14 @@
 defmodule AoC15.Day1 do
-  def a(input) when input |> is_binary do
+  use AoC15.Default
+
+  def a(input \\ @input) when input |> is_binary do
     input
     |> String.trim
     |> count_parens
     |> diff_parens
   end
 
-  def b(input) when input |> is_binary do
+  def b(input \\ @input) when input |> is_binary do
     input
     |> find_floor(-1)
   end
