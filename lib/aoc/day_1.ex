@@ -1,17 +1,22 @@
 defmodule AoC15.Day1 do
   use AoC15.Default
 
+  @input String.trim(@input)
+
   def a(input \\ @input) when input |> is_binary do
     input
-    |> String.trim
-    |> count_parens
-    |> diff_parens
+    |> diff_count_parens()
   end
 
   def b(input \\ @input) when input |> is_binary do
     input
     |> find_floor(-1)
   end
+
+  defp diff_count_parens(input, acc \\ 0)
+  defp diff_count_parens("", acc), do: acc
+  defp diff_count_parens("(" <> t, acc), do: diff_count_parens(t, acc + 1)
+  defp diff_count_parens(")" <> t, acc), do: diff_count_parens(t, acc - 1)
 
   defp count_parens(input, acc \\ {0, 0})
   defp count_parens("", acc), do: acc
