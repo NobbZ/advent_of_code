@@ -1,41 +1,41 @@
 defmodule AoC15.Day3 do
   def a(input) do
     input
-    |> String.strip
+    |> String.trim
     |> move_around
   end
 
   def b(input) do
     input
-    |> String.strip
+    |> String.trim
     |> move_around_with_robot
   end
 
-  defp move_around(input), do: move_around(input, {0, 0}, HashSet.new)
+  defp move_around(input), do: move_around(input, {0, 0}, MapSet.new)
   #defp move_around(input, coord \\ {0, 0}, visited \\ HashSet.new)
   defp move_around("", coord, visited) do
     visited
-    |> HashSet.put(coord)
-    |> HashSet.size
+    |> MapSet.put(coord)
+    |> MapSet.size
   end
 
   defp move_around(<<d :: utf8>> <> input, coords, visited) do
-    move_around(input, move_one(coords, d), HashSet.put(visited, coords))
+    move_around(input, move_one(coords, d), MapSet.put(visited, coords))
   end
 
-  defp move_around_with_robot(input), do: move_around_with_robot(input, {0, 0}, {0, 0}, HashSet.new)
+  defp move_around_with_robot(input), do: move_around_with_robot(input, {0, 0}, {0, 0}, MapSet.new)
   #  defp move_around_with_robot(input, santa \\ {0, 0}, robo \\ {0, 0}, visited \\ HashSet.new)
   defp move_around_with_robot("", santa, robo, visited) do
     visited
-    |> HashSet.put(santa)
-    |> HashSet.put(robo)
-    |> HashSet.size
+    |> MapSet.put(santa)
+    |> MapSet.put(robo)
+    |> MapSet.size
   end
 
   defp move_around_with_robot(<<sd :: utf8, rd :: utf8>> <> input, santa, robo, visited) do
     visited = visited
-    |> HashSet.put(santa)
-    |> HashSet.put(robo)
+    |> MapSet.put(santa)
+    |> MapSet.put(robo)
 
     santa = santa |> move_one(sd)
     robo = robo |> move_one(rd)

@@ -1,7 +1,7 @@
 defmodule AoC15.Day1 do
   def a(input) when input |> is_binary do
     input
-    |> String.strip
+    |> String.trim
     |> count_parens
     |> diff_parens
   end

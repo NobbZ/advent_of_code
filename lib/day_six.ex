@@ -1,17 +1,17 @@
 defmodule AoC15.Day6 do
   def a(input) do
     input
-    |> String.strip
+    |> String.trim
     |> String.split("\n")
     |> Enum.map(&parse_instruction/1)
     |> Enum.map(&rewrite_instruction/1)
     |> Enum.reduce(MapSet.new, &apply_instructions/2)
-    |> Set.size
+    |> MapSet.size
   end
 
   def b(input) do
     input
-    |> String.strip
+    |> String.trim
     |> String.split("\n")
     |> Enum.map(&parse_instruction/1)
     |> Enum.map(&rewrite_instruction/1)

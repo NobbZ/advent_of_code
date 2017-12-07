@@ -14,7 +14,7 @@ defmodule AoC15.Day4 do
   end
 
   defp gen_hashes(input) do
-    numbers
+    numbers()
     |> Stream.map(fn n -> {input <> to_string(n), n} end)
     |> Stream.map(fn {str, n} -> {:erlang.md5(str), n} end)
   end

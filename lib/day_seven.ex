@@ -5,7 +5,7 @@ defmodule AoC15.Day7 do
 
   def a(input) do
     input
-    |> String.strip
+    |> String.trim
     |> String.split("\n")
     |> Stream.map(&String.split(&1, " -> "))
     |> Stream.map(&parse/1)
@@ -16,7 +16,7 @@ defmodule AoC15.Day7 do
 
   def b(input) do
     instrs = input
-    |> String.strip
+    |> String.trim
     |> String.split("\n")
     |> Stream.map(&String.split(&1, " -> "))
     |> Stream.map(&parse/1)
