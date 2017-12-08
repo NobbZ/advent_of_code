@@ -47,14 +47,16 @@ defmodule AdventOfCodeTests do
       ]},
     {6, [
         a: [
-          {"turn on 0,0 through 999,999", 1_000_000},
-          {"turn on 0,0 through 999,999\ntoggle 0,0 through 999,0", 999_000},
-          {"turn on 0,0 through 999,999\nturn off 499,499 through 500,500", 999_996},
+          {[{:on,  {{  0,   0}, {999, 999}}}], 1_000_000},
+          {[{:on,  {{  0,   0}, {999, 999}}},
+            {:tgl, {{  0,   0}, {999,   0}}}],   999_000},
+          {[{:on,  {{  0,   0}, {999, 999}}},
+            {:off, {{499, 499}, {500, 500}}}],   999_996},
           {:file, 543903}
         ],
         b: [
-          {"turn on 0,0 through 0,0", 1},
-          {"toggle 0,0 through 999,999", 2_000_000},
+          {[{:on,  {{0, 0}, {  0,   0}}}],         1},
+          {[{:tgl, {{0, 0}, {999, 999}}}], 2_000_000},
           {:file, 14687245}
         ]
       ]},
@@ -90,7 +92,7 @@ defmodule AdventOfCodeTests do
                             :file ->
                               {"#{fun}: from file is #{exp}", []}
                             _ ->
-                              {"#{fun}: example #{input} is #{exp}", [input]}
+                              {"#{fun}: example #{inspect input} is #{exp}", [input]}
                           end
           test name do
             assert unquote(exp) = apply(unquote(mod),
