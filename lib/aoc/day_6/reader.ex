@@ -18,7 +18,7 @@ defmodule AoC15.Day6.Reader do
     |> String.split(" through ")
     |> Stream.map(&String.split(&1, ","))
     |> Stream.map(fn (x) -> Enum.map(x, &String.to_integer/1) end)
-    |> Stream.map(fn [x, y] -> {x, y} end)
+    |> Enum.map(fn [x, y] -> {x, y} end)
     |> List.to_tuple
   end
 end
