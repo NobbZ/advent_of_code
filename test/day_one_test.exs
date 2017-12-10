@@ -80,11 +80,11 @@ defmodule AdventOfCodeTests do
       use ExUnit.Case
       Enum.each(tests, fn
         {part, input, expect} ->
-          @tag [example: true, day: day]
+          @tag [example: true, day: day, part: part, daypart: "#{day}#{part}"]
           test "Day #{day}#{part}: #{inspect input} is #{expect}", do:
             assert unquote(mod).unquote(part)(unquote(Macro.escape(input))) == unquote(expect)
         {part, expect} ->
-          @tag [full: true, day: day]
+          @tag [full: true, day: day, part: part, daypart: "#{day}#{part}"]
           test "Day #{day}#{part}: **FULL**", do:
             assert unquote(mod).unquote(part)() == unquote(expect)
       end)
