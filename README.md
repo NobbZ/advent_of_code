@@ -1,20 +1,6 @@
 # AdventOfCode
 
-**TODO: Add description**
+This repository holds parts of my solutions for Advent of Code 2015.
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
-
-  1. Add advent_of_code to your list of dependencies in `mix.exs`:
-
-        def deps do
-          [{:advent_of_code, "~> 0.0.1"}]
-        end
-
-  2. Ensure advent_of_code is started before your application:
-
-        def application do
-          [applications: [:advent_of_code]]
-        end
-
+All of these solutions available here get migrated to
+[gitlab](https://gitlab.com/NobbZ/aoc_ex).
